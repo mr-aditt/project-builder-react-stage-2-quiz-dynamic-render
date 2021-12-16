@@ -12,12 +12,14 @@ class QUIZ extends Component {
         }
     }
 
-    next_QA = (index) => {
-        this.setState({currIndex: currIndex++});
+    next_QA = () => {
+        (this.state.currIndex==11)?this.setState({currIndex:this.state.QA.length-1}):this.setState({currIndex: this.state.currIndex+1});
+        console.log(this.state.currIndex);
     }
 
-    prev_QA = (index) => {
-        this.setState({currIndex: currIndex--});
+    prev_QA = () => {
+        (this.state.currIndex>0)?this.setState({currIndex: this.state.currIndex-1}):this.setState({currIndex:0});
+        console.log(this.state.currIndex);
     }
 
     quit_quiz = () => {
@@ -26,19 +28,20 @@ class QUIZ extends Component {
     }
 
     render() {
+        console.log(this.state.QA.length);
         return (
             (this.state.show)? 
             <div className="quiz-container">
                 <h2>Question</h2>
                 <div className="question-space">
-                    <span className="qno">4 of 15</span>
-                    <span>Which is the only mammel which can't jump?</span>
+                    <span className="qno">{this.state.currIndex+1} of {this.state.QA.length}</span>
+                    <span>{this.state.QA[this.state.currIndex].question}</span>
                 </div>
                 <div className="options">
-                    <button>Dog</button>
-                    <button>Goat</button>
-                    <button>Elephant</button>
-                    <button>Lion</button>
+                    <button>{this.state.QA[this.state.currIndex].optionA}</button>
+                    <button>{this.state.QA[this.state.currIndex].optionB}</button>
+                    <button>{this.state.QA[this.state.currIndex].optionC}</button>
+                    <button>{this.state.QA[this.state.currIndex].optionD}</button>
                 </div>
                 <div className="btns" id="actions-btns">
                     <button id="acton-previous" onClick={this.prev_QA}>Previous</button>
