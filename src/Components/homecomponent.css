@@ -1,0 +1,21 @@
+* {
+    background-color: #40407a;
+    color: whitesmoke;
+    font-family: cursive;
+}
+
+.home-container {
+    display: block;
+    position: absolute;
+    inset: 33vh 0 0 0;
+}
+
+button {
+    background-color: #57b846;
+    font-size: large;
+    
+    width: 15em;
+    height: 4em;
+    border-radius: 30px;
+    border: none;
+}
