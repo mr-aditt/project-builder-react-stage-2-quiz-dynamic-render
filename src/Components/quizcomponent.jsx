@@ -13,7 +13,7 @@ class QUIZ extends Component {
     }
 
     next_QA = () => {
-        (this.state.currIndex==11)?this.setState({currIndex:this.state.QA.length-1}):this.setState({currIndex: this.state.currIndex+1});
+        (this.state.currIndex===11)?this.setState({currIndex:this.state.QA.length-1}):this.setState({currIndex: this.state.currIndex+1});
         console.log(this.state.currIndex);
     }
 
